@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom"
-import Button from '@material-ui/core/Button'
-import Paper from '@material-ui/core/Paper'
+import { BrowserRouter, Route } from "react-router-dom"
 import Home from './Home'
 import CreateAuction from './CreateAuction'
 
