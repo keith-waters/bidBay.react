@@ -1,7 +1,7 @@
 import { combineReducers } from "redux"
 
-import data from "./dataReducer"
+import auction from "./auctionsReducer"
 
 export default combineReducers({
-  data
+  auction 
 })

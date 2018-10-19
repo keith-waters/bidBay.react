@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from "react-router-dom"
+import { connect } from 'react-redux'
 import Home from './Home'
 import CreateAuction from './CreateAuction'
 import WatchAuction from './WatchAuction'
 import BidOnAuction from './BidOnAuction'
 
-export default class BidBay extends Component {
+import * as actions from './actions'
+
+class BidBay extends Component {
+  componentWillMount() {
+    this.props.fetchCurrentAuction()
+  }
+  
   render() {
     return (
       <BrowserRouter>
@@ -20,3 +27,8 @@ export default class BidBay extends Component {
   }
 }
 
+export default connect(state => {
+  return {
+    auction: state.auction,
+  }
+}, actions)(BidBay);
