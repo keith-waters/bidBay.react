@@ -1,8 +1,8 @@
-import { FETCH_CURRENT_AUCTION } from "../actions/types"
+import { CREATE_NEW_BIDDER } from "../actions/types"
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case FETCH_CURRENT_AUCTION:
+    case CREATE_NEW_BIDDER:
       return action.payload
     default:
       return state

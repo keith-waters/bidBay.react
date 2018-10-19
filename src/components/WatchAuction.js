@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
-import * as actions from './actions'
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
-import Layout from './Layout'
+
+import Layout from './common/Layout'
+import DisabledTextField from './common/DisabledTextField'
+
+import * as actions from '../actions'
 
 
 class WatchAuction extends Component {
@@ -44,37 +44,24 @@ class WatchAuction extends Component {
           Watching Auction
         </Typography>
 
-        <TextField
-          disabled
+        <DisabledTextField
           label='Item'
           value={this.state.item}
-          style={{marginBottom: 20}}
-          InputProps={{style: {color: 'black'}}}
         />
 
-        <TextField
-          disabled
+        <DisabledTextField
           label='Current Bidder'
           value={this.state.currentBidder}
-          style={{marginBottom: 20}}
-          InputProps={{style: {color: 'black'}}}
         />
 
-        <TextField
-          disabled
+        <DisabledTextField
           label='Current bid'
           type='number'
           value={this.state.currentBid}
-          style={{marginBottom: 20}}
-          InputProps={{style: {color: 'black'}}}
         />
 
-        <Button component={Link} to='/' variant="contained" color="primary" >
-          Close the Auction 
-        </Button>
-
       </Layout>
-    );
+    )
   }
 }
 
@@ -82,4 +69,4 @@ export default connect(state => {
   return {
     auction: state.auction
   }
-}, actions)(WatchAuction);
+}, actions)(WatchAuction)

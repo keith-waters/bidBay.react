@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import uuidv1 from 'uuid/v1'
-import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
-import Layout from './Layout'
-import { createAuctionItem } from './actions'
+
+import Layout from './common/Layout'
+import LinkButton from './common/LinkButton'
+
+import { createAuctionItem } from '../actions'
 
 class CreateAuction extends Component {
   constructor(props) {
@@ -19,13 +19,11 @@ class CreateAuction extends Component {
 
   onStartAuction = () => {
     const item = {
-      id: uuidv1(),
       name: this.state.item,
       startingBid: this.state.startingBid,
       auctioneer: 'Auctioneer1',
       currentBid: this.state.startingBid,
       currentBidder: '', 
-      active: true,
     }
     
     this.props.dispatch(createAuctionItem(item))
@@ -34,7 +32,7 @@ class CreateAuction extends Component {
   handleChange = (name, event) => {
     this.setState({
       [name]: event.target.value,
-    });
+    })
   }
 
   render() {
@@ -62,18 +60,15 @@ class CreateAuction extends Component {
           style={{marginBottom: 20}}
         />
 
-        <Button 
-          component={Link} 
+        <LinkButton 
           to='/watch-auction' 
-          variant="contained" 
-          color="primary"
           onClick={this.onStartAuction}
         >
           Start the Auction 
-        </Button>
+        </LinkButton>
       </Layout>
-    );
+    )
   }
 }
 
-export default connect()(CreateAuction);
+export default connect()(CreateAuction)
