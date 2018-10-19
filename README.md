@@ -7,9 +7,9 @@
  - run npm install
  - create a config.js file in the /src/firebase directory
  - format the file: 
-  - module.exports = {
-      YOUR_FIREBASE_CREDENTIALS
-    } 
+ module.exports = {
+   YOUR_FIREBASE_CREDENTIALS
+ } 
  - run npm start
 
 
