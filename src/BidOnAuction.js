@@ -5,8 +5,8 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Layout from './Layout'
 
-
 export default class WatchAuction extends Component {
+  
   render() {
     return (
       <Layout>

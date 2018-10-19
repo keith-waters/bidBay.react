@@ -1,34 +1,21 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Layout from './Layout'
 
-import firebase from 'firebase'
-import config from './firebase/config'
-
-firebase.initializeApp(config)
-const database = firebase.database()
-
 export default class CreateAuction extends Component {
 
   onStartAuction = () => {
     const item = {
-      name: 'Cool item',
-      startingBid: 100,
+      name: 'Cool item 3',
+      startingBid: 200,
       auctioneer: 'Auctioneer1',
-      currentBid: 100,
+      currentBid: 2000,
       currentBidder: '', 
+      active: true,
     }
-
-    database.ref('auctions/' + item.name).set({
-      item: item.name,
-      startingBid: item.startingBid,
-      auctioneer: item.auctioneer,
-      currentBid: item.currentBid,
-      currentBidder: item.currentBidder, 
-    });
+    
 
     console.log(item)
   }
