@@ -5,7 +5,6 @@ import CreateAuction from './CreateAuction'
 import WatchAuction from './WatchAuction'
 import BidOnAuction from './BidOnAuction'
 
-
 export default class BidBay extends Component {
   render() {
     return (

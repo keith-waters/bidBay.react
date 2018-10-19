@@ -5,8 +5,34 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Layout from './Layout'
 
+import firebase from 'firebase'
+import config from './firebase/config'
+
+firebase.initializeApp(config)
+const database = firebase.database()
 
 export default class CreateAuction extends Component {
+
+  onStartAuction = () => {
+    const item = {
+      name: 'Cool item',
+      startingBid: 100,
+      auctioneer: 'Auctioneer1',
+      currentBid: 100,
+      currentBidder: '', 
+    }
+
+    database.ref('auctions/' + item.name).set({
+      item: item.name,
+      startingBid: item.startingBid,
+      auctioneer: item.auctioneer,
+      currentBid: item.currentBid,
+      currentBidder: item.currentBidder, 
+    });
+
+    console.log(item)
+  }
+
   render() {
     return (
       <Layout>
@@ -28,7 +54,13 @@ export default class CreateAuction extends Component {
           style={{marginBottom: 20}}
         />
 
-        <Button component={Link} to='/watch-auction' variant="contained" color="primary">
+        <Button 
+          //component={Link} 
+          //to='/watch-auction' 
+          variant="contained" 
+          color="primary"
+          onClick={this.onStartAuction}
+        >
           Start the Auction 
         </Button>
       </Layout>
