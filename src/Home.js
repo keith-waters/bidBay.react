@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import Button from '@material-ui/core/Button'
-import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
 import Layout from './Layout'
 
 
@@ -27,7 +25,7 @@ export default class Home extends Component {
           or
         </Typography>
 
-        <Button component={Link} to='/' variant="contained" color="primary">
+        <Button component={Link} to='/bid-auction' variant="contained" color="primary">
           Bid on an auction
         </Button>
       </Layout>
